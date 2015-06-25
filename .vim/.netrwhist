@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/amd/schedule/src/Schedule'
+let g:netrw_dirhist_2='/amd/schedule/src'
+let g:netrw_dirhist_3='/amd/schedule/src/adm'
+let g:netrw_dirhist_4='/amd/schedule/src'
+let g:netrw_dirhist_5='/amd/schedule/src/etc'
+let g:netrw_dirhist_6='/amd/schedule/src'
+let g:netrw_dirhist_7='/amd/schedule/src/wrapper'
+let g:netrw_dirhist_8='/usr/local/etc'
+let g:netrw_dirhist_9='/amd/cs/101/0116057/develop/cs/shells'

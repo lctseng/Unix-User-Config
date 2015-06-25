@@ -1,0 +1,12 @@
+Display a mark on lines which contain compilation errors listed on the quickfix window.
+
+Screenshots : http://twinside.github.com/vim-cuteErrorMarker/
+
+Tested on :
+- Ubuntu 9.04 (GVim && vim)
+- Windows XP/Vista/7
+ 
+install details
+    drop the files in your ~/.vim or ~/vimfiles (or better, use pathogen)
+    (can work in $VIM and $VIMRUNTIME folder, but favor dropping it in your profile dir)
+ 

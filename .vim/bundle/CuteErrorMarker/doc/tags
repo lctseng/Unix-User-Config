@@ -1,0 +1,14 @@
+:CleanupMarkErrors	cuteErrorMarker.txt	/*:CleanupMarkErrors*
+:MarkErrors	cuteErrorMarker.txt	/*:MarkErrors*
+:RemoveErrorMarkersHook	cuteErrorMarker.txt	/*:RemoveErrorMarkersHook*
+CleanupMarkErrors	cuteErrorMarker.txt	/*CleanupMarkErrors*
+CuteErrorChangelog	cuteErrorMarker.txt	/*CuteErrorChangelog*
+CuteErrorCommands	cuteErrorMarker.txt	/*CuteErrorCommands*
+CuteErrorConfiguration	cuteErrorMarker.txt	/*CuteErrorConfiguration*
+CuteErrorPresentation	cuteErrorMarker.txt	/*CuteErrorPresentation*
+MarkErrors	cuteErrorMarker.txt	/*MarkErrors*
+RemoveErrorMarkersHook	cuteErrorMarker.txt	/*RemoveErrorMarkersHook*
+cuteErrorMarker.txt	cuteErrorMarker.txt	/*cuteErrorMarker.txt*
+g:cuteErrorMarkerBrutalSignRemoval	cuteErrorMarker.txt	/*g:cuteErrorMarkerBrutalSignRemoval*
+g:cuteerrors_no_autoload	cuteErrorMarker.txt	/*g:cuteerrors_no_autoload*
+g:cuteerrors_no_baloons	cuteErrorMarker.txt	/*g:cuteerrors_no_baloons*

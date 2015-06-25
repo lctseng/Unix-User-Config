@@ -1,0 +1,28 @@
+altscreen on # erase screen when quit apps
+defutf8 on
+defc1 off # treat input chars 128 ~ 159 as control functions
+defflow on
+activity "activity in %n (%t)"
+bell_msg "bell in %n (%t) ^G"
+vbell off
+vbell_msg "WTF!!!"
+startup_message off
+nethack on
+shell $SHELL
+ 
+# using Ctrl+Left & Ctrl+Right 
+bindkey ^[[1;5D prev
+bindkey ^[[1;5C next
+bindkey \033[D prev
+bindkey \033[C next
+ 
+# encoding
+#defencoding utf8
+bind b encoding big5 utf8
+bind u encoding utf8 utf8
+defbce on # erase background with current bg color
+#cjkwidth off
+caption always "%{=u .M}%-w%<%{=ub C}%n %t%{=u .M}%+w%-09="                    
+#hardstatus alwayslastline "%{ kk}%{g}%e%<%=%{Y} %D%c:%s %a%{R} %M %d/%m/%Y %=[%{G}@%H %{M}Load: %l %{w}%{R}]"
+ 
+screen -t TODO 0
