@@ -1,6 +1,19 @@
 #!/bin/sh -ev
-ln -s .vim ~/.vim
+# Absolute path to this script, e.g. /home/user/bin/foo.sh
+SCRIPT=$(readlink -f "$0")
+# Absolute path this script is in, thus /home/user/bin
+BASEPATH=$(dirname "$SCRIPT")
+
+ln -s $BASEPATH/.vim ~/.vim
+if [ -f ~/.vimrc ]; then
+	# Backup old
+	mv ~/.vimrc ~/.vimrc.old
+fi
 ln -s ~/.vim/vimrc ~/.vimrc
-ln -s .tcshrc ~/.tcshrc
-ln -s .screenrc ~/.screenrc
-ln -s .tmux.conf ~/.tmux.conf
+if [ -f ~/.tcshrc ]; then
+	# Backup old
+	mv ~/.tcshrc ~/.tcshrc.old
+fi
+ln -s $BASEPATH/.tcshrc ~/.tcshrc
+ln -s $BASEPATH/.screenrc ~/.screenrc
+ln -s $BASEPATH/.tmux.conf ~/.tmux.conf
