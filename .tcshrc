@@ -35,6 +35,10 @@ alias tr 'tmux attach'
 
 # NCTU CS Project
 alias nsl 'ssh 140.113.214.99'
+alias fcoe-cli 'ssh 140.113.17.95'
+alias fcoe-tgr 'ssh 140.113.17.96'
+alias fcoe-ovs 'ssh 140.113.17.97'
+
 
 # Please change "EZ SO OP" to your name.
 setenv NAME "lctseng"
