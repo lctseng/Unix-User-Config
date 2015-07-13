@@ -158,6 +158,11 @@ map <F11> gT
 " go to next tab
 map <F12> gt
 
+" save and sudo save
+map <C-t><C-s> :w !sudo tee > /dev/null %<CR>
+map <C-s> :w<CR>
+
+
 " new tab
 map <C-t><C-t> :tabnew<CR>
 " close tab

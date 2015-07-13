@@ -40,6 +40,7 @@ alias vfcoe-tgr 'ssh 140.113.17.96'
 alias vfcoe-ovs 'ssh 140.113.17.97'
 alias fcoe-cli 'ssh 10.0.50.1'
 alias fcoe-tgr 'ssh 10.0.50.2'
+alias fcoe-ovs 'ssh 10.0.50.3'
 
 # Please change "EZ SO OP" to your name.
 setenv NAME "lctseng"
@@ -58,9 +59,9 @@ alias ll 'ls -al'
 
 if ($?prompt) then
   if(! $?WINDOW ) then
-    set prompt="┌%{^[[1;36m%}%T%{^[[m%} %{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m %{^[[1;32m%}[%~]%{^[[m%} \n└%{^[[1;35m%}[^_^] %{^[[m%}>"
+    set prompt="%{^[[1;36m%}%T%{^[[m%} %{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m %{^[[1;32m%}[%~]%{^[[m%} \n%{^[[1;35m%}[^_^] %{^[[m%} %#"
   else
-    set prompt="┌%{^[[1;36m%}%t%{^[[m%} %{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m %{^[[1;32m%}[%~]%{^[[m%} \n└%{^[[1;35m%}[W$WINDOW]%{^[[m%} >"
+    set prompt="%{^[[1;36m%}%t%{^[[m%} %{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m %{^[[1;32m%}[%~]%{^[[m%} \n%{^[[1;35m%}[W$WINDOW]%{^[[m%} %#"
   endif
   if ($?tcsh) then
     set mail = (/var/mail/$USER)
