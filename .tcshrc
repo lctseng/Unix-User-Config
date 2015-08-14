@@ -44,6 +44,7 @@ alias vfcoe-ovs 'ssh 140.113.17.97'
 alias fcoe-cli 'ssh 10.0.50.1'
 alias fcoe-tgr 'ssh 10.0.50.2'
 alias fcoe-ovs 'ssh 10.0.50.3'
+alias art 'ssh acc.nctu.edu.tw'
 
 # Please change "EZ SO OP" to your name.
 setenv NAME "lctseng"
