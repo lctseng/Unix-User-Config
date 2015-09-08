@@ -7,6 +7,11 @@ umask 22
 #setenv PAGER 'less -r'
 stty -ixon
 
+foreach id ( `seq 1 9` )
+    alias "h$id" "ssh root@172.16.0.$id"
+end
+set first_ip=`ifconfig | sed -e '/127\.0\.0\.1/d' | awk '/inet .* netmask/{print $2}' | sed -n '1,1p'`
+
 setenv EDITOR vim
 
 set nobeep
@@ -37,7 +42,7 @@ alias tr 'tmux attach'
 alias cs-help 'ssh help -p 222'
 
 # NCTU CS Project
-alias nsl 'ssh 140.113.214.99'
+alias nsl 'ssh lctseng@nsl.cs.nctu.edu.tw'
 alias vfcoe-cli 'ssh 140.113.17.95'
 alias vfcoe-tgr 'ssh 140.113.17.96'
 alias vfcoe-ovs 'ssh 140.113.17.97'
@@ -61,12 +66,17 @@ setenv CLICOLOR
 setenv TERM screen
 alias ls 'ls -F \!*'
 alias ll 'ls -al'
+alias grep 'grep --color=auto'
 
 if ($?prompt) then
+  set ip_str=''
+  if ($?first_ip) then
+    set ip_str=$first_ip
+  endif
   if(! $?WINDOW ) then
-    set prompt="%{^[[1;36m%}%T%{^[[m%} %{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m %{^[[1;32m%}[%~]%{^[[m%} \n%{^[[1;35m%}[^_^] %{^[[m%} %# "
+    set prompt="%{^[[1;36m%}%T%{^[[m%} %{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m%{^[[1;31m%}($ip_str)%{^[[1;32m%}[%~]%{^[[m%} \n%{^[[1;35m%}[^_^] %{^[[m%} %# "
   else
-    set prompt="%{^[[1;36m%}%t%{^[[m%} %{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m %{^[[1;32m%}[%~]%{^[[m%} \n%{^[[1;35m%}[W$WINDOW]%{^[[m%} %# "
+    set prompt="%{^[[1;36m%}%t%{^[[m%} %{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m%{^[[1;31m%}($ip_str)%{^[[1;32m%}[%~]%{^[[m%} \n%{^[[1;35m%}[W$WINDOW]%{^[[m%} %# "
   endif
   if ($?tcsh) then
     set mail = (/var/mail/$USER)
