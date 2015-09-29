@@ -21,7 +21,7 @@ set color
 alias write 'env LC_CTYPE=en_US.ISO8859-1 write'
 alias talk 'env LC_CTYPE=en_US.ISO8859-1 talk'
 alias wall 'env LC_CTYPE=en_US.ISO8859-1 wall'
-alias bs2 'telnet -8 bs2.to'
+alias bs2 'ssh bbsu@ssh.bs2.to'
 alias p_all 'pushd . ; cd ~ ; cd .. ; ls  | tr -d "/" | xargs -n1 -I $ user $ ; popd'
 alias cd.. 'cd ..'
 alias cd- 'cd -'
