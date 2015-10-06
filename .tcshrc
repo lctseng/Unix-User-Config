@@ -65,7 +65,13 @@ setenv LC_ALL zh_TW.UTF-8
 #setenv LC_ALL zh_TW.Big5
 setenv CLICOLOR
 setenv TERM screen
-alias ls 'ls -F \!*'
+
+set uname=`uname`
+if ($uname == "Linux") then
+  alias ls 'ls --color=auto -F \!*'
+else
+  alias ls 'ls -F \!*'
+endif
 alias ll 'ls -al'
 alias grep 'grep --color=auto'
 
