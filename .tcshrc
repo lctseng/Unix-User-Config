@@ -10,7 +10,6 @@ stty -ixon
 foreach id ( `seq 1 9` )
     alias "h$id" "ssh root@172.16.0.$id"
 end
-set first_ip=`ifconfig | sed -e '/127\.0\.0\.1/d' | awk '/inet .* netmask/{print $2}' | sed -n '1,1p'`
 
 setenv EDITOR vim
 
@@ -69,8 +68,10 @@ setenv TERM screen
 set uname=`uname`
 if ($uname == "Linux") then
   alias ls 'ls --color=auto -F \!*'
+  set first_ip=`ip addr | sed -e '/127\.0\.0\.1/d' | awk '/inet .*/{print $2}' | awk -F/ '{print $1}'`
 else
   alias ls 'ls -F \!*'
+  set first_ip=`ifconfig | sed -e '/127\.0\.0\.1/d' | awk '/inet .* netmask/{print $2}' | sed -n '1,1p'`
 endif
 alias ll 'ls -al'
 alias grep 'grep --color=auto'
