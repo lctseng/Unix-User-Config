@@ -68,10 +68,10 @@ setenv TERM screen
 set uname=`uname`
 if ($uname == "Linux") then
   alias ls 'ls --color=auto -F \!*'
-  set first_ip=`ip addr | sed -e '/127\.0\.0\.1/d' | awk '/inet .*/{print $2}' | awk -F/ '{print $1}'`
+  set first_ip=`ip addr | sed -e '/127\.0\.0\.1/d' | awk '/inet .*/{print $2}' | sed 1q | awk -F/ '{print $1}'`
 else
   alias ls 'ls -F \!*'
-  set first_ip=`ifconfig | sed -e '/127\.0\.0\.1/d' | awk '/inet .* netmask/{print $2}' | sed -n '1,1p'`
+  set first_ip=`ifconfig | sed -e '/127\.0\.0\.1/d' | awk '/inet .* netmask/{print $2}' | sed 1q | sed -n '1,1p'`
 endif
 alias ll 'ls -al'
 alias grep 'grep --color=auto'
@@ -79,7 +79,7 @@ alias grep 'grep --color=auto'
 if ($?prompt) then
   set ip_str=''
   if ($?first_ip) then
-    set ip_str=$first_ip
+    set ip_str="$first_ip"
   endif
   if(! $?WINDOW ) then
     set prompt="%{^[[1;36m%}%T%{^[[m%} %{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m%{^[[1;31m%}($ip_str)%{^[[1;32m%}[%~]%{^[[m%} \n%{^[[1;35m%}[^_^] %{^[[m%} %# "
