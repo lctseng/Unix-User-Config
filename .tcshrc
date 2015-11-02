@@ -37,7 +37,7 @@ alias nat235 'ssh nat235'
 alias csbackup 'ssh csbackup'
 alias csmail 'ssh csmail'
 alias csmailer 'ssh csmailer'
-alias tr 'tmux attach'
+alias tmr 'tmux attach'
 alias cs-help 'ssh help -p 222'
 
 # NCTU CS Project
