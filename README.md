@@ -9,3 +9,4 @@ User configuration for me
   - .screenrc
   - .tcshrc
   - .tmux.conf
+  - .gitconfig

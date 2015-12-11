@@ -15,5 +15,10 @@ if [ -f ~/.tcshrc ]; then
 	mv ~/.tcshrc ~/.tcshrc.old
 fi
 ln -s $BASEPATH/.tcshrc ~/.tcshrc
+if [ -f ~/.gitconfig ]; then
+	# Backup old
+	mv ~/.gitconfig ~/.gitconfig.old
+fi
+ln -s $BASEPATH/.gitconfig ~/.gitconfig
 ln -s $BASEPATH/.screenrc ~/.screenrc
 ln -s $BASEPATH/.tmux.conf ~/.tmux.conf
