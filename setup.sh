@@ -3,7 +3,11 @@
 SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 BASEPATH=$(dirname "$SCRIPT")
+# Update submodule
+git submodule update --init --recursive
 
+
+# Link files
 ln -s $BASEPATH/.vim ~/.vim
 if [ -f ~/.vimrc ]; then
 	# Backup old
