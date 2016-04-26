@@ -11,3 +11,5 @@
         ch = checkout
         b = branch
         sub = reset HEAD
+[color]
+	ui = auto
