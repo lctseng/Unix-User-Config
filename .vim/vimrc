@@ -343,7 +343,7 @@ let g:snipMateAllowMatchingDot = 0
 let g:gitgutter_enabled = 1
 
 " NerdTree Binding
-"nnoremap <silent> <F6> :NERDTree<CR>
+nnoremap <silent> <F6> :NERDTree<CR>
 
 " Ag: Search current word
 map <silent> <C-f> :Ag <cword><cr>
