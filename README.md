@@ -10,3 +10,10 @@ User configuration for me
   - .tcshrc
   - .tmux.conf
   - .gitconfig
+- 需要的系統元件
+  - git
+  - screen
+  - tmux
+  - vim
+  - the_silver_searcher(ag)
+
