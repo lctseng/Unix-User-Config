@@ -19,6 +19,11 @@ if [ -f ~/.tcshrc ]; then
 	mv ~/.tcshrc ~/.tcshrc.old
 fi
 ln -s $BASEPATH/.tcshrc ~/.tcshrc
+if [ -f ~/.zshrc ]; then
+	# Backup old
+	mv ~/.zshrc ~/.zshrc.old
+fi
+ln -s $BASEPATH/.tcshrc ~/.tcshrc
 if [ -f ~/.gitconfig ]; then
 	# Backup old
 	mv ~/.gitconfig ~/.gitconfig.old

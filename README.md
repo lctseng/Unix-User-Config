@@ -8,5 +8,6 @@ User configuration for me
 - 其他設定檔
   - .screenrc
   - .tcshrc
+  - .zshrc
   - .tmux.conf
   - .gitconfig
