@@ -1,33 +1,48 @@
-#!/bin/sh -ev
+#!/bin/sh -e
+echo "[Initializing]"
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
 SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 BASEPATH=$(dirname "$SCRIPT")
+
 # Update submodule
-git submodule update --init --recursive
+echo "[Updateing git submodules]"
+cd $BASEPATH && git submodule update --init --recursive
 
-
-# Link files
-ln -s $BASEPATH/.vim ~/.vim
-if [ -f ~/.vimrc ]; then
-	# Backup old
-	mv ~/.vimrc ~/.vimrc.old
+# Link if target is not the same as 
+# Link two directory 
+echo "[Linking files and directories]"
+for filename in .zkbd .vim .tcshrc .zshrc .gitconfig .screenrc .tmux.conf; do
+  if [ -e ~/$filename ]; then
+    DIFF=$(diff -rq ~/$filename $BASEPATH/$filename) 
+    if [ "$DIFF" != "" ] ; then
+      # they need backup
+      echo "Backup: ~/$filename as  ~/$filename.old"
+      mv ~/$filename ~/$filename.old
+      echo "Create: $filename"
+      ln -s $BASEPATH/$filename ~/$filename
+    else
+      echo "No changed: $filename"
+    fi
+  else
+    echo "Create: $filename"
+    ln -s $BASEPATH/$filename ~/$filename
+  fi
+done
+# Link vimrc
+filename=vimrc
+if [ -e ~/.$filename ]; then
+  DIFF=$(diff -rq ~/.$filename ~/.vim/$filename) 
+  if [ "$DIFF" != "" ] ; then
+    # they need backup
+    echo "Backup: ~/.$filename as  ~/.$filename.old"
+    mv ~/.$filename ~/.$filename.old
+    echo "Create: .$filename"
+    ln -s ~/.vim/$filename ~/.$filename
+  else
+    echo "No changed: .$filename"
+  fi
+else
+  echo "Create: .$filename"
+  ln -s ~/.vim/$filename ~/.$filename
 fi
-ln -s ~/.vim/vimrc ~/.vimrc
-if [ -f ~/.tcshrc ]; then
-	# Backup old
-	mv ~/.tcshrc ~/.tcshrc.old
-fi
-ln -s $BASEPATH/.tcshrc ~/.tcshrc
-if [ -f ~/.zshrc ]; then
-	# Backup old
-	mv ~/.zshrc ~/.zshrc.old
-fi
-ln -s $BASEPATH/.tcshrc ~/.tcshrc
-if [ -f ~/.gitconfig ]; then
-	# Backup old
-	mv ~/.gitconfig ~/.gitconfig.old
-fi
-ln -s $BASEPATH/.gitconfig ~/.gitconfig
-ln -s $BASEPATH/.screenrc ~/.screenrc
-ln -s $BASEPATH/.tmux.conf ~/.tmux.conf
