@@ -74,11 +74,16 @@ unsetopt beep
 
 
 autoload zkbd
-if [[ -e ${ZDOTDIR:-$HOME}/.zkbd/general ]]; then
-  source ${ZDOTDIR:-$HOME}/.zkbd/general
+
+if [ "$TMUX" != "" ] ; then
+  source ${ZDOTDIR:-$HOME}/.zkbd/tmux-general
 else
-  [[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE ]] && zkbd
-  source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE
+  if [[ -e ${ZDOTDIR:-$HOME}/.zkbd/screen-general ]]; then
+    source ${ZDOTDIR:-$HOME}/.zkbd/screen-general
+  else
+    [[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE ]] && zkbd
+    source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE
+  fi
 fi
 
 [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
