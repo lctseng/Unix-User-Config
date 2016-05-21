@@ -1,3 +1,4 @@
+term screen-256color
 altscreen on # erase screen when quit apps
 defutf8 on
 defc1 off # treat input chars 128 ~ 159 as control functions

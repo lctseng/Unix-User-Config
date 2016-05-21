@@ -95,8 +95,8 @@ fi
 
 
 #bindkey -v
-bindkey "${terminfo[khome]}" beginning-of-line
-bindkey "${terminfo[kend]}" end-of-line
+#bindkey "${terminfo[khome]}" beginning-of-line
+#bindkey "${terminfo[kend]}" end-of-line
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -140,7 +140,7 @@ export LC_ALL='zh_TW.UTF-8'
 #export LC_CTYPE='zh_TW.Big5'
 #export LANG='zh_TW.Big5'
 #export LC_ALL='zh_TW.Big5'
-export TERM="xterm-256color"
+export TERM="screen"
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 autoload -Uz compinit
