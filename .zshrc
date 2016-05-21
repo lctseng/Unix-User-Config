@@ -180,3 +180,12 @@ fi
 
 
 
+export HTTP_PROXY="192.168.2.91:80"
+export HTTPS_PROXY="192.168.2.91:80"
+export FTP_PROXY="192.168.2.91:80"
+
+
+export http_proxy="192.168.2.91:80"
+export https_proxy="192.168.2.91:80"
+export ftp_proxy="192.168.2.91:80"
+

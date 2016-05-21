@@ -96,3 +96,6 @@ if ($?prompt) then
 endif
 
 
+setenv HTTP_PROXY http://192.168.2.91:80/
+setenv HTTPS_PROXY http://192.168.2.91:80/
+setenv FTP_PROXY  http://192.168.2.91:80/
