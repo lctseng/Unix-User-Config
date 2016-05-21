@@ -2,6 +2,7 @@
 
 setopt prompt_subst
 autoload -U colors && colors # Enable colors in prompt
+export TERM="screen"
 
 # Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_SYMBOL="%{$fg_bold[blue]%}±"
@@ -75,15 +76,13 @@ unsetopt beep
 
 autoload zkbd
 
-if [ "$TMUX" != "" ] ; then
-  source ${ZDOTDIR:-$HOME}/.zkbd/tmux-general
-else
-  if [[ -e ${ZDOTDIR:-$HOME}/.zkbd/screen-general ]]; then
-    source ${ZDOTDIR:-$HOME}/.zkbd/screen-general
-  else
-    [[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE ]] && zkbd
-    source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE
-  fi
+
+# for tmux-screen nesting
+bindkey -s "\e[1~" "\eOH"
+bindkey -s "\e[4~" "\eOF"
+
+if [[ -e ${ZDOTDIR:-$HOME}/.zkbd/screen-general ]]; then
+  source ${ZDOTDIR:-$HOME}/.zkbd/screen-general
 fi
 
 [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
@@ -145,7 +144,6 @@ export LC_ALL='zh_TW.UTF-8'
 #export LC_CTYPE='zh_TW.Big5'
 #export LANG='zh_TW.Big5'
 #export LC_ALL='zh_TW.Big5'
-export TERM="screen"
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 autoload -Uz compinit
