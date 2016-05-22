@@ -144,6 +144,7 @@ export LC_ALL='zh_TW.UTF-8'
 #export LC_CTYPE='zh_TW.Big5'
 #export LANG='zh_TW.Big5'
 #export LC_ALL='zh_TW.Big5'
+export RUBY_VERSION_PATCH=`ruby -e 'puts "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"'`
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 autoload -Uz compinit
