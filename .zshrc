@@ -156,7 +156,7 @@ if [[ $uname == "Linux" ]]; then
   alias ls='ls --color=auto'
   first_ip=`ip addr | sed -e '/127\.0\.0\.1/d' | awk '/inet .*/{print $2}' | sed 1q | awk -F/ '{print $1}'`
 else
-  alias ls='ls -F'
+  alias ls='ls -G'
   first_ip=`ifconfig | sed -e '/127\.0\.0\.1/d' | awk '/inet .* netmask/{print $2}' | sed 1q | sed -n '1,1p'`
 fi
 
