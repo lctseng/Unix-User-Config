@@ -46,3 +46,15 @@ else
   echo "Create: .$filename"
   ln -s ~/.vim/$filename ~/.$filename
 fi
+
+# Compile Command-T
+OS_TYPE=`uname`
+if [ $OS_TYPE == "FreeBSD" ]; then
+  GNU_MAKE=gmake
+else
+  GNU_MAKE=make
+fi
+cd $BASEPATH/.vim/bundle/command-t/ruby/command-t
+$GNU_MAKE clean
+ruby extconf.rb
+$GNU_MAKE
