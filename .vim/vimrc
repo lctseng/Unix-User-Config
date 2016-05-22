@@ -342,9 +342,17 @@ let g:snipMateAllowMatchingDot = 0
 " --- vim-gitgutter
 let g:gitgutter_enabled = 1
 
-" NerdTree Binding
+" --- NerdTree Binding
 nnoremap <silent> <F6> :NERDTree<CR>
 
-" Ag: Search current word
+" --- Ag: Search current word
 map <silent> <C-f> :Ag <cword><cr>
 let g:ag_working_path_mode="r"
+
+" --- Easy Align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+" example: gaip*= or (selected) ga**=
+nmap ga <Plug>(EasyAlign)
+

@@ -46,3 +46,31 @@ else
   echo "Create: .$filename"
   ln -s ~/.vim/$filename ~/.$filename
 fi
+
+# Compile Command-T
+echo "[Compiling Command-T]"
+UNAME=`uname`
+if [ $UNAME == "FreeBSD" ]; then
+  GNU_MAKE=gmake
+else
+  GNU_MAKE=make
+fi
+echo "Use GNU MAKE from command: ${GNU_MAKE}"
+# create a os version if not exists
+COMMAND_T_BASE_PATH="$BASEPATH/.vim/bundle/command-t"
+OS_TYPE="`uname -s`-`uname -m`"
+RUBY_VERSION_PATCH=`ruby -e 'puts "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"'`
+OS_RUBY_VERSION="ruby-platform-${OS_TYPE}-${RUBY_VERSION_PATCH}"
+
+if [ ! -d $COMMAND_T_BASE_PATH/$OS_RUBY_VERSION  ]; then
+  # not exists, create from template
+  echo "Create a platform-dependent copy: $OS_RUBY_VERSION"
+  cp -a $COMMAND_T_BASE_PATH/ruby $COMMAND_T_BASE_PATH/$OS_RUBY_VERSION
+  cd "$COMMAND_T_BASE_PATH/$OS_RUBY_VERSION/command-t"
+  echo "Compiling..."
+  ruby extconf.rb
+  $GNU_MAKE clean
+  $GNU_MAKE
+else
+  echo "Already newest version"
+fi

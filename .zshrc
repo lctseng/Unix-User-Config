@@ -144,6 +144,7 @@ export LC_ALL='zh_TW.UTF-8'
 #export LC_CTYPE='zh_TW.Big5'
 #export LANG='zh_TW.Big5'
 #export LC_ALL='zh_TW.Big5'
+export RUBY_VERSION_PATCH=`ruby -e 'puts "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"'`
 
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 autoload -Uz compinit
@@ -156,7 +157,7 @@ if [[ $uname == "Linux" ]]; then
   alias ls='ls --color=auto'
   first_ip=`ip addr | sed -e '/127\.0\.0\.1/d' | awk '/inet .*/{print $2}' | sed 1q | awk -F/ '{print $1}'`
 else
-  alias ls='ls -F'
+  alias ls='ls -G'
   first_ip=`ifconfig | sed -e '/127\.0\.0\.1/d' | awk '/inet .* netmask/{print $2}' | sed 1q | sed -n '1,1p'`
 fi
 
