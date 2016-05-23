@@ -4,6 +4,8 @@ setopt prompt_subst
 autoload -U colors && colors # Enable colors in prompt
 export TERM="screen"
 
+stty -ixon
+
 # Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_SYMBOL="%{$fg_bold[blue]%}±"
 GIT_PROMPT_PREFIX="%{$fg_bold[green]%}[%{$reset_color%}"
