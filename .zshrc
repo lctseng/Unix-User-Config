@@ -75,6 +75,11 @@ SAVEHIST=1000
 setopt appendhistory autocd extendedglob nomatch
 unsetopt beep
 
+# Histroy
+autoload -Uz history-beginning-search-menu
+zle -N history-beginning-search-menu
+bindkey '^X^X' history-beginning-search-menu
+
 
 autoload zkbd
 
