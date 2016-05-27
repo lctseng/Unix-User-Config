@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/vim-easy-align"]
 	path = .vim/bundle/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align
+[submodule "zsh-syntax-highlighting"]
+	path = zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting

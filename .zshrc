@@ -186,6 +186,85 @@ fi
 
 
 
+
+bindkey -e
+
+function zle-line-init {
+    marking=0
+}
+zle -N zle-line-init
+
+function select-char-right {
+    if (( $marking != 1 )) 
+    then
+        marking=1
+        zle set-mark-command
+    fi
+    zle .forward-char
+}
+zle -N select-char-right
+
+function select-char-left {
+    if (( $marking != 1 )) 
+    then
+        marking=1
+        zle set-mark-command
+    fi
+    zle .backward-char
+}
+zle -N select-char-left
+
+function forward-char {
+    if (( $marking == 1 ))
+    then
+        marking=0
+        NUMERIC=-1 zle set-mark-command
+    fi
+    zle .forward-char
+}
+zle -N forward-char
+
+function backward-char {
+    if (( $marking == 1 ))
+    then
+        marking=0
+        NUMERIC=-1 zle set-mark-command
+    fi
+    zle .backward-char
+}
+zle -N backward-char
+
+function delete-char {
+    if (( $marking == 1 ))
+    then
+        zle kill-region
+        marking=0
+    else
+        zle .delete-char
+    fi
+}
+zle -N delete-char
+
+bindkey '^[[1;3D' select-char-left 
+bindkey '^[[1;3C' select-char-right
+bindkey "\C-w" delete-char
+
+
+# Syntax highlight
+source ~/Unix-User-Config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+typeset -A ZSH_HIGHLIGHT_STYLES
+fg_green='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=magenta,bold'
+ZSH_HIGHLIGHT_STYLES[command]=$fg_green
+ZSH_HIGHLIGHT_STYLES[alias]=$fg_green
+ZSH_HIGHLIGHT_STYLES[builtin]=$fg_green
+
+
+
+
+
+
+
 export HTTP_PROXY="192.168.2.91:80"
 export HTTPS_PROXY="192.168.2.91:80"
 export FTP_PROXY="192.168.2.91:80"
@@ -194,4 +273,3 @@ export FTP_PROXY="192.168.2.91:80"
 export http_proxy="192.168.2.91:80"
 export https_proxy="192.168.2.91:80"
 export ftp_proxy="192.168.2.91:80"
-
