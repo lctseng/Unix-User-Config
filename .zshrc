@@ -1,5 +1,7 @@
 # Adapted from code found at <https://gist.github.com/1712320>.
 
+bindkey -e
+
 setopt prompt_subst
 autoload -U colors && colors # Enable colors in prompt
 export TERM="screen"
@@ -87,6 +89,8 @@ autoload zkbd
 # for tmux-screen nesting
 bindkey -s "\e[1~" "\eOH"
 bindkey -s "\e[4~" "\eOF"
+bindkey -s "\e\e[D" "\e[1;3D"
+bindkey -s "\e\e[C" "\e[1;3C"
 
 if [[ -e ${ZDOTDIR:-$HOME}/.zkbd/screen-general ]]; then
   source ${ZDOTDIR:-$HOME}/.zkbd/screen-general
@@ -189,7 +193,6 @@ fi
 
 
 
-bindkey -e
 
 function zle-line-init {
     marking=0
