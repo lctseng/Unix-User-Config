@@ -186,3 +186,67 @@ fi
 
 
 
+
+
+
+bindkey -e
+
+function zle-line-init {
+    marking=0
+}
+zle -N zle-line-init
+
+function select-char-right {
+    if (( $marking != 1 )) 
+    then
+        marking=1
+        zle set-mark-command
+    fi
+    zle .forward-char
+}
+zle -N select-char-right
+
+function select-char-left {
+    if (( $marking != 1 )) 
+    then
+        marking=1
+        zle set-mark-command
+    fi
+    zle .backward-char
+}
+zle -N select-char-left
+
+function forward-char {
+    if (( $marking == 1 ))
+    then
+        marking=0
+        NUMERIC=-1 zle set-mark-command
+    fi
+    zle .forward-char
+}
+zle -N forward-char
+
+function backward-char {
+    if (( $marking == 1 ))
+    then
+        marking=0
+        NUMERIC=-1 zle set-mark-command
+    fi
+    zle .backward-char
+}
+zle -N backward-char
+
+function delete-char {
+    if (( $marking == 1 ))
+    then
+        zle kill-region
+        marking=0
+    else
+        zle .delete-char
+    fi
+}
+zle -N delete-char
+
+bindkey '^[[1;3D' select-char-left 
+bindkey '^[[1;3C' select-char-right
+bindkey "\C-w" delete-char
