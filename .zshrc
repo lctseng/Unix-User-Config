@@ -250,3 +250,13 @@ zle -N delete-char
 bindkey '^[[1;3D' select-char-left 
 bindkey '^[[1;3C' select-char-right
 bindkey "\C-w" delete-char
+
+
+# Syntax highlight
+source ~/Unix-User-Config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+typeset -A ZSH_HIGHLIGHT_STYLES
+fg_green='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=magenta,bold'
+ZSH_HIGHLIGHT_STYLES[command]=$fg_green
+ZSH_HIGHLIGHT_STYLES[alias]=$fg_green
+ZSH_HIGHLIGHT_STYLES[builtin]=$fg_green
