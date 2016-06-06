@@ -263,3 +263,10 @@ ZSH_HIGHLIGHT_STYLES[globbing]='fg=magenta,bold'
 ZSH_HIGHLIGHT_STYLES[command]=$fg_green
 ZSH_HIGHLIGHT_STYLES[alias]=$fg_green
 ZSH_HIGHLIGHT_STYLES[builtin]=$fg_green
+
+## rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+# Load rbenv automatically by appending
+# the following to ~/.zshrc:
+eval "$(rbenv init -)"
+
