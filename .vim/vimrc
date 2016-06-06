@@ -356,3 +356,5 @@ xmap ga <Plug>(EasyAlign)
 " example: gaip*= or (selected) ga**=
 nmap ga <Plug>(EasyAlign)
 
+
+au BufNewFile,BufRead *.rabl set filetype=ruby
