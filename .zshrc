@@ -262,12 +262,13 @@ ZSH_HIGHLIGHT_STYLES[command]=$fg_green
 ZSH_HIGHLIGHT_STYLES[alias]=$fg_green
 ZSH_HIGHLIGHT_STYLES[builtin]=$fg_green
 
+## rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+# Load rbenv automatically by appending
+# the following to ~/.zshrc:
+eval "$(rbenv init -)"
 
-
-
-
-
-
+# Proxy
 export HTTP_PROXY="192.168.2.91:80"
 export HTTPS_PROXY="192.168.2.91:80"
 export FTP_PROXY="192.168.2.91:80"
