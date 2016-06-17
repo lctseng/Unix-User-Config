@@ -25,5 +25,6 @@ defbce on # erase background with current bg color
 #cjkwidth off
 caption always "%{=u .M}%-w%<%{=ub C}%n %t%{=u .M}%+w%-09="                    
 #hardstatus alwayslastline "%{ kk}%{g}%e%<%=%{Y} %D%c:%s %a%{R} %M %d/%m/%Y %=[%{G}@%H %{M}Load: %l %{w}%{R}]"
+defscrollback 100000
  
 screen -t TODO 0
