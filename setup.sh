@@ -50,7 +50,7 @@ fi
 # Compile Command-T
 echo "[Compiling Command-T]"
 UNAME=`uname`
-if [ $UNAME == "FreeBSD" ]; then
+if [ $UNAME = "FreeBSD" ]; then
   GNU_MAKE=gmake
 else
   GNU_MAKE=make
