@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 echo "[Initializing]"
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
 SCRIPT=$(readlink -f "$0")
