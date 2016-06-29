@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 echo "[Initializing]"
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
 SCRIPT=$(readlink -f "$0")
@@ -50,7 +50,7 @@ fi
 # Compile Command-T
 echo "[Compiling Command-T]"
 UNAME=`uname`
-if [ $UNAME == "FreeBSD" ]; then
+if [ $UNAME = "FreeBSD" ]; then
   GNU_MAKE=gmake
 else
   GNU_MAKE=make

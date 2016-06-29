@@ -348,6 +348,7 @@ nnoremap <silent> <F6> :NERDTree<CR>
 " --- Ag: Search current word
 map <silent> <C-f> :Ag <cword><cr>
 let g:ag_working_path_mode="r"
+ca Ag Ag!
 
 " --- Easy Align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
