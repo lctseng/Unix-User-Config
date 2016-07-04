@@ -87,8 +87,12 @@ autoload zkbd
 
 
 # for tmux-screen nesting
+# Home-end
 bindkey -s "\e[1~" "\eOH"
 bindkey -s "\e[4~" "\eOF"
+bindkey -s "\e[H" "\eOH"
+bindkey -s "\e[F" "\eOF"
+
 bindkey -s "\e\e[D" "\e[1;3D"
 bindkey -s "\e\e[C" "\e[1;3C"
 

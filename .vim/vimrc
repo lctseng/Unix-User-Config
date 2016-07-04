@@ -155,8 +155,10 @@ set wmh=0                     " set the min height of a window to 0 so we can ma
 " comment them out if you want the original H/L
 " go to prev tab 
 map <F11> gT
+imap <F11> <C-o>gT
 " go to next tab
 map <F12> gt
+imap <F12> <C-o>gt
 
 " save and sudo save
 map <C-t><C-s> :w !sudo tee > /dev/null %<CR>
@@ -175,6 +177,12 @@ nmap <leader>/ :nohl<CR>
 cnoremap <C-A>      <Home>
 cnoremap <C-E>      <End>
 cnoremap <C-K>      <C-U>
+
+" Home-end mapping in insert mode
+map <ESC>[H g^
+imap <ESC>[H <C-o>g^
+map <ESC>[F g$
+imap <ESC>[F <C-o>g$
 
 " ,p toggles paste mode
 nmap <leader>p :set paste!<BAR>set paste?<CR>
