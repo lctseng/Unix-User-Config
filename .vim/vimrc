@@ -359,6 +359,7 @@ let g:gitgutter_enabled = 1
 
 " --- NerdTree Binding
 nnoremap <silent> <F6> :NERDTree<CR>
+inoremap <silent> <F6> <C-o>:NERDTree<CR>
 
 " --- Ag: Search current word
 map <silent> <C-f> :Ag <cword><cr>
@@ -372,6 +373,11 @@ xmap ga <Plug>(EasyAlign)
 " example: gaip*= or (selected) ga**=
 nmap ga <Plug>(EasyAlign)
 
+" Window moving
+nmap <silent> <leader><Up> :wincmd k<CR>
+nmap <silent> <leader><Down> :wincmd j<CR>
+nmap <silent> <leader><Left> :wincmd h<CR>
+nmap <silent> <leader><Right> :wincmd l<CR>
 
 au BufNewFile,BufRead *.rabl set filetype=ruby
 
