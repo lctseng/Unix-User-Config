@@ -74,3 +74,7 @@ if [ ! -d $COMMAND_T_BASE_PATH/$OS_RUBY_VERSION  ]; then
 else
   echo "Already newest version"
 fi
+echo "[===========]"
+echo "Setup complete! Remember to modify .gitconfig to set your own name and email address."
+echo Or you can run \'git config --global user.name \"Your Name\"\' to set your name, 
+echo and \'git config --global user.email you@example.com\' to set your email address
