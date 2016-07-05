@@ -166,6 +166,12 @@ imap <C-t><C-s> <C-o>:w !sudo tee > /dev/null %<CR>
 map <C-s> :w<CR>
 imap <C-s> <C-o>:w<CR>
 
+" Delete (not cut)
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d 
+nnoremap <leader>D "_D
+nnoremap <leader>x "_x
+
 " new tab
 map <C-t><C-t> :tabnew<CR>
 " close tab
