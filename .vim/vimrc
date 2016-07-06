@@ -191,6 +191,11 @@ imap <ESC>[H <C-o>g^
 map <ESC>[F g$
 imap <ESC>[F <C-o>g$
 
+map <ESC>OH g^
+imap <ESC>OH <C-o>g^
+map <ESC>OF g$
+imap <ESC>OF <C-o>g$
+
 " ,p toggles paste mode
 nmap <leader>p :set paste!<BAR>set paste?<CR>
 
