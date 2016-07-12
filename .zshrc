@@ -128,26 +128,13 @@ fi
 
 # alias and env
 export EDITOR=vim
-alias write='env LC_CTYPE=en_US.ISO8859-1 write'
-alias talk='env LC_CTYPE=en_US.ISO8859-1 talk'
-alias wall='env LC_CTYPE=en_US.ISO8859-1 wall'
-alias bs2='ssh bbsu@ssh.bs2.to'
-alias p_all='pushd . ; cd ~ ; cd .. ; ls  | tr -d "/" | xargs -n1 -I $ user $ ; popd'
+
 alias 'cd..'='cd ..'
 alias 'cd-'='cd -'
 alias cls='clear'
 alias sr='screen -RD'
 alias sd='screen -d'
-alias nctucs='ssh lctseng@nctucs.tw'
-alias csduty='ssh csduty'
-alias cshome='ssh cshome'
-alias linux='ssh linux3'
-alias bsd='ssh bsd5'
-alias csbackup='ssh csbackup'
-alias csmail='ssh csmail'
-alias csmailer='ssh csmailer'
 alias tmr='tmux attach'
-alias cs-help='ssh help -p 222'
 alias ll='ls -al'
 alias grep='grep --color=auto'
 
