@@ -24,7 +24,6 @@ set ruler		" show the cursor position all the time
 set autoread		" auto read when file is changed from outside
 set nu
 
-filetype off          " necessary to make ftdetect work on Linux
 syntax on
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
@@ -166,6 +165,12 @@ imap <C-t><C-s> <C-o>:w !sudo tee > /dev/null %<CR>
 map <C-s> :w<CR>
 imap <C-s> <C-o>:w<CR>
 
+" Delete (not cut)
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d 
+nnoremap <leader>D "_D
+nnoremap <leader>x "_x
+
 " new tab
 map <C-t><C-t> :tabnew<CR>
 " close tab
@@ -184,6 +189,11 @@ map <ESC>[H g^
 imap <ESC>[H <C-o>g^
 map <ESC>[F g$
 imap <ESC>[F <C-o>g$
+
+map <ESC>OH g^
+imap <ESC>OH <C-o>g^
+map <ESC>OF g$
+imap <ESC>OF <C-o>g$
 
 " ,p toggles paste mode
 nmap <leader>p :set paste!<BAR>set paste?<CR>
@@ -353,6 +363,7 @@ let g:gitgutter_enabled = 1
 
 " --- NerdTree Binding
 nnoremap <silent> <F6> :NERDTree<CR>
+inoremap <silent> <F6> <C-o>:NERDTree<CR>
 
 " --- Ag: Search current word
 map <silent> <C-f> :Ag <cword><cr>
@@ -366,6 +377,11 @@ xmap ga <Plug>(EasyAlign)
 " example: gaip*= or (selected) ga**=
 nmap ga <Plug>(EasyAlign)
 
+" Window moving
+nmap <silent> <leader><Up> :wincmd k<CR>
+nmap <silent> <leader><Down> :wincmd j<CR>
+nmap <silent> <leader><Left> :wincmd h<CR>
+nmap <silent> <leader><Right> :wincmd l<CR>
 
 au BufNewFile,BufRead *.rabl set filetype=ruby
 
