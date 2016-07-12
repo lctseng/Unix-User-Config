@@ -74,7 +74,7 @@ if [ ! -d $COMMAND_T_BASE_PATH/$OS_RUBY_VERSION  ]; then
 else
   echo "Already newest version"
 fi
-echo "\033[1;32m"
+echo "[1;32m"
 cat <<'EOF'
  _      _                        
 | | ___| |_ ___  ___ _ __   __ _ 
@@ -83,11 +83,11 @@ cat <<'EOF'
 |_|\___|\__|___/\___|_| |_|\__, |
                            |___/ 
 EOF
-echo "\033[1;0m"
-echo "\033[1;91mATTENTION!!\033[1;0m"
-echo "Remember to modify \033[1;91m.gitconfig\033[1;0m to set your own name and email address."
-echo "Or you can run '\033[1;91mgit config --global user.name \"Your Name\"\033[1;0m' to set your name,"
-echo "and '\033[1;91mgit config --global user.email you@example.com\033[1;0m' to set your email address"
+echo "[1;0m"
+echo "[1;91mATTENTION!![1;0m"
+echo "Remember to modify [1;91m.gitconfig[1;0m to set your own name and email address."
+echo "Or you can run '[1;91mgit config --global user.name \"Your Name\"[1;0m' to set your name,"
+echo "and '[1;91mgit config --global user.email you@example.com[1;0m' to set your email address"
 
 username=`whoami`
 if [ "${username}" != "lctseng" ]; then
@@ -95,22 +95,22 @@ if [ "${username}" != "lctseng" ]; then
   echo "It seems that your name is not lctseng."
   while true;
   do
-    echo -n "Do you change the settings for git? \033[1;91m[y/N]\033[1;0m "
+    echo -n "Do you change the settings for git? [1;91m[y/N][1;0m "
     read cmd
     if [ "${cmd}" = "y" -o "${cmd}" = "Y" ]; then
-      echo -n "Enter your name (default: \033[1;91m${username}\033[1;0m): "
+      echo -n "Enter your name (default: [1;91m${username}[1;0m): "
       read new_name
       if [ ${#new_name} -eq 0 ]; then
         new_name=$username
       fi
-      echo "Changed git name to \033[1;91m${new_name}\033[1;0m"
+      echo "Changed git name to [1;91m${new_name}[1;0m"
       git config --global user.name "${new_name}"
       echo -n "Enter your email (left empty to keep the old one): "
       read new_email
       if [ ${#new_email} -eq 0 ]; then
         echo "Keeps the old email settings"
       else
-        echo "Changed git email to \033[1;91m${new_email}\033[1;0m"
+        echo "Changed git email to [1;91m${new_email}[1;0m"
         git config --global user.email "${new_email}"
       fi
       break
