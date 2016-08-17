@@ -255,6 +255,10 @@ ZSH_HIGHLIGHT_STYLES[command]=$fg_green
 ZSH_HIGHLIGHT_STYLES[alias]=$fg_green
 ZSH_HIGHLIGHT_STYLES[builtin]=$fg_green
 
+# Auto suggestion
+source ~/Unix-User-Config/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan,underline'
+
 ## rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 # Load rbenv automatically by appending
