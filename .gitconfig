@@ -9,6 +9,7 @@
         st = status
         s = status -s
         ch = checkout
+        co = checkout
         b = branch
         sub = reset HEAD
 [color]

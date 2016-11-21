@@ -384,6 +384,8 @@ nmap <silent> <leader><Left> :wincmd h<CR>
 nmap <silent> <leader><Right> :wincmd l<CR>
 
 au BufNewFile,BufRead *.rabl set filetype=ruby
+au BufNewFile,BufRead *.coffee set filetype=coffee
+autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 
 " Rspec
 " Test helpers from Gary Bernhardt's screen cast:
@@ -436,5 +438,13 @@ autocmd FileType conf,fstab       let b:comment_leader = '# '
 autocmd FileType tex              let b:comment_leader = '% '
 autocmd FileType mail             let b:comment_leader = '> '
 autocmd FileType vim              let b:comment_leader = '" '
+
+
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+" let g:rubycomplete_rails = 1
+
