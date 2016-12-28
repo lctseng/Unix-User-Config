@@ -165,6 +165,9 @@ imap <C-t><C-s> <C-o>:w !sudo tee > /dev/null %<CR>
 map <C-s> :w<CR>
 imap <C-s> <C-o>:w<CR>
 
+" move windows in insert mode
+imap <C-w> <C-o><C-w>
+
 " Delete (not cut)
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d 
