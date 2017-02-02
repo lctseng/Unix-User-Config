@@ -265,3 +265,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 # the following to ~/.zshrc:
 eval "$(rbenv init -)"
 
+if [ -e ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
