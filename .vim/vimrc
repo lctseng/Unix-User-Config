@@ -25,6 +25,8 @@ set autoread		" auto read when file is changed from outside
 set nu
 set exrc
 
+" set completefunc=syntaxcomplete#Complete " disabled
+
 syntax on
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
@@ -336,10 +338,12 @@ let g:CommandTMaxHeight = 15
 
 
 " --- SuperTab
-" set completefunc=syntaxcomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-i>", "&omnifunc:<c-x><c-p>", "&omnifunc:<c-x><c-o>"]
+let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-p>", "&omnifunc:<c-x><c-o>"] 
+
+" include file search is disable here
+" --- &omnifunc:<c-x><c-i>
 
 
 " --- EasyMotion
