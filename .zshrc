@@ -248,6 +248,10 @@ bindkey '^[[1;3D' select-char-left
 bindkey '^[[1;3C' select-char-right
 bindkey "\C-w" delete-char
 
+bindkey "\eOC" forward-word
+bindkey "\eOD" backward-word
+
+
 
 # Syntax highlight
 source ~/Unix-User-Config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
