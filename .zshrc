@@ -173,9 +173,15 @@ if [ -n ${prompt} ]; then
   if [ -n ${first_ip} ]; then
     ip_str=${first_ip}
   fi
-  window_str='[XD]'
+  window_str=''
   if [ -n "${WINDOW}" ]; then
-    window_str="[W${WINDOW}]"
+    window_str="[S${WINDOW}]"
+  fi
+  if [ -n "${TMUX_PANE}" ]; then
+    window_str="[T`tmux display-message -p '#I'`]$window_str"
+  fi
+  if [ -z "$window_str" ]; then
+    window_str="[XD]"
   fi
   prompt='%{$fg_bold[cyan]%}%T %{$fg_bold[yellow]%}%n%{$reset_color%}@%{$fg_bold[white]%}%m%{$reset_color%}%{$fg_bold[red]%}($ip_str)%{$fg_bold[green]%}[%~]%{$reset_color%} $(git_prompt_string)
 %{$fg_bold[magenta]%}$window_str %{$reset_color%}%# '
