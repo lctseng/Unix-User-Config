@@ -379,6 +379,7 @@ inoremap <silent> <F6> <C-o>:NERDTree<CR>
 map <silent> <C-f> :Ag <cword><cr>
 let g:ag_working_path_mode="r"
 ca Ag Ag!
+ca ag Ag!
 
 " --- Easy Align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
