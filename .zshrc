@@ -21,7 +21,7 @@ GIT_PROMPT_STAGED="%{$fg_bold[green]%}●%{$reset_color%}"
 
 # Show Git branch/tag, or name-rev if on detached head
 parse_git_branch() {
-  (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
+   (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
 }
 
 # Show different symbols as appropriate for various Git repository states
@@ -39,20 +39,22 @@ parse_git_state() {
   if [ "$NUM_BEHIND" -gt 0 ]; then
     GIT_STATE=$GIT_STATE${GIT_PROMPT_BEHIND//NUM/$NUM_BEHIND}
   fi
-
-  #local GIT_DIR="$(git rev-parse --git-dir 2> /dev/null)"
-  #if [ -n $GIT_DIR ] && test -r $GIT_DIR/MERGE_HEAD; then
-  #  GIT_STATE=$GIT_STATE$GIT_PROMPT_MERGING
-  #fi
-
-  #if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-  #  GIT_STATE=$GIT_STATE$GIT_PROMPT_UNTRACKED
-  #fi
-
-  #if ! git diff --quiet 2> /dev/null; then
-  #  GIT_STATE=$GIT_STATE$GIT_PROMPT_MODIFIED
-  #fi
-
+# 
+#   # vvv Slow command!
+#   local GIT_DIR="$(git rev-parse --git-dir 2> /dev/null)"
+#   if [ -n $GIT_DIR ] && test -r $GIT_DIR/MERGE_HEAD; then
+#     GIT_STATE=$GIT_STATE$GIT_PROMPT_MERGING
+#   fi
+# 
+#   if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+#     GIT_STATE=$GIT_STATE$GIT_PROMPT_UNTRACKED
+#   fi
+# 
+#   if ! git diff-files --no-ext-diff --quiet 2> /dev/null; then
+#     GIT_STATE=$GIT_STATE$GIT_PROMPT_MODIFIED
+#   fi
+#   # ^^^ Slow command!
+# 
   if ! git diff --cached --quiet 2> /dev/null; then
     GIT_STATE=$GIT_STATE$GIT_PROMPT_STAGED
   fi
