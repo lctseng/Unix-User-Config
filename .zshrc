@@ -1,3 +1,7 @@
+if [ -e ~/.zshrc.local.preload ]; then
+  source ~/.zshrc.local.preload
+fi
+
 # Adapted from code found at <https://gist.github.com/1712320>.
 
 bindkey -e
@@ -275,7 +279,7 @@ source ~/Unix-User-Config/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan,underline'
 
 ## rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$HOME/bin:$PATH"
 # Load rbenv automatically by appending
 # the following to ~/.zshrc:
 eval "$(rbenv init -)"
