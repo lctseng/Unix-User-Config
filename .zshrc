@@ -8,7 +8,7 @@ bindkey -e
 
 setopt prompt_subst
 autoload -U colors && colors # Enable colors in prompt
-export TERM="screen"
+export TERM="xterm-256color"
 
 stty -ixon
 

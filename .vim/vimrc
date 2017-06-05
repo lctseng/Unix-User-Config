@@ -43,14 +43,12 @@ set hlsearch		" search highlighting
 if has("gui_running")	" GUI color and font settings
   set guifont=Osaka-Mono:h20
   set background=dark 
-  set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
-  colors moria
   highlight CursorLine          guibg=#003853 ctermbg=24  gui=none cterm=none
 else
 " terminal color settings
-  colors vgod
 endif
+colors vgod
 
 set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }
@@ -465,3 +463,4 @@ map <ESC>f e
 imap <ESC>b <C-o>b
 imap <ESC>f <C-o>e
 cmap <ESC>f e
+set t_Co=256          " 256 color mode
