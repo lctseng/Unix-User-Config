@@ -50,7 +50,7 @@ else
 endif
 colors vgod
 
-set clipboard=unnamed	" yank to the system register (*) by default
+" set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }
 set showmode		" Show current mode
 set wildchar=<TAB>	" start wild expansion in the command line using <TAB>
