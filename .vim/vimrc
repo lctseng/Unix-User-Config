@@ -50,7 +50,6 @@ if has("gui_running")	" GUI color and font settings
 else
 " terminal color settings
 endif
-colors vgod
 
 " set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }
@@ -467,3 +466,7 @@ imap <ESC>b <C-o>b
 imap <ESC>f <C-o>e
 cmap <ESC>f e
 set t_Co=256          " 256 color mode
+
+" Colors
+
+hi Comment ctermfg=lightblue
