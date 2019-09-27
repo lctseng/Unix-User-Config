@@ -1,6 +1,6 @@
 [user]
 	name = Liang-Chi Tseng
-	email = lctseng@cs.nctu.edu.tw
+	email = lctseng.github@cs.nctu.edu.tw
 [core]
 	editor = vim
 	pager = less -R
