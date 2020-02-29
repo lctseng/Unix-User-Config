@@ -5,7 +5,7 @@ GEM
     mechanize (1.0.0)
       nokogiri (>= 1.2.1)
     nokogiri (1.4.4)
-    rake (0.8.7)
+    rake (12.3.3)
     rr (1.0.2)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
